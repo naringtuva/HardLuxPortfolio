@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Georgia", "Times New Roman", serif;
+}
+
+body {
+    background-color: #ffffff;
+    overflow-x: hidden;
+
+}
+
+.haroldnavigation {
+    background-color: #000000;
+    position: sticky;
+    top: 0;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    z-index: 20;
+}
+
+.navs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex: 1;
+}
+
+.haroldnavigation a:not(.varukorg) { /*om inte varukorg bilden blir mindre nu så tappar jag förståndét*/
+    font-family: "Impact", sans-serif;
+    color: #fffefe;
+    text-decoration: none;
+    margin: 0 0.9375rem; /* converted margin to rem */
+    font-size: 2.5rem; /* typographic sizing in rem */
+    text-transform: uppercase;
+    transition: color 0.3s;
+    padding: 0.375rem 0.9375rem; /* spacing converted to rem */
+    z-index: 100;
+}
+
+.haroldnavigation a:hover {
+    color: #ca0000;
+}
+
+.varukorg {
+    margin-left: auto;
+    display: flex;
+    text-decoration: none;
+    font-size: 0;
+}
+
+.varukorg img {
+    width: 3.75rem; /* responsive image sizing using rem */
+    height:auto;
+    max-height: 3.75rem; /* responsive max-height */
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.varukorg:hover {
+    transform: translate(-2px, -2px);
+}
+
+#counter {
+    pointer-events: none;
+    font-size: 1.25rem; /* typographic sizing in rem */
+    font-family: "Helvetica", sans-serif;
+    color: #fff;
+}
+
+/* Produkt bild och besdkrivning och pris */
+
+.PDPcard {
+    display: grid;
+    grid-template-columns: minmax(20rem, 40.625rem) 1fr; /* flexible column with rem sizing */
+    grid-template-areas: "image text";
+    gap: 5rem;
+    align-items: start;
+    padding: 10rem;
+    padding-bottom: 20rem;
+    min-height: 37.5rem; /* converted height to rem with min-height for flexibility */
+    overflow: visible;
+}
+
+.PDPcard-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    align-self: start;
+    margin-top: -5rem; /* converted margin to rem */
+}
+
+.PDPPoster img { /*storlek för posters PDPs*/
+    width: 100%;
+    max-width: 31.25rem; /* converted max-width to rem */
+    height: auto;
+    display: block;
+    margin-top: -5rem; /* converted margin to rem */
+}
+
+.PDPcard-text {
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.PDPcard-text h3 {
+    font-family: "Impact", sans-serif;
+    font-size: 4.5rem; /* heading sized in rem */
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.PDPcard-text h2 {
+    font-family: "Impact", sans-serif;
+    font-size: 4.375rem; /* converted to rem */
+    text-transform: uppercase;
+    font-weight: 5;
+}
+
+.PDPcard-text p {
+    font-family: "Helvetica", sans-serif;
+    font-size: 1.125rem; /* body copy in rem */
+    line-height: 1.5;
+}
+
+/* add to cart knappen */
+
+.add-to-cart {
+    margin-top: 2rem;
+    padding: 1.2rem 3rem;
+    width: 37.5rem; /* converted width to rem */
+    font-family: "Impact", sans-serif;
+    font-size: 1.75rem; /* button text sized in rem */
+    letter-spacing: 0.08rem;
+    background-color: #333333;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.add-to-cart:hover {
+    box-shadow: 4px 4px 0 #ca0000; /* kept px for border precision */
+}
+
+.add-to-cart:active {
+    transform: translate(0,0);
+    box-shadow: none;
+}
+
+/* välj storlek knapparna */
+
+.size-meny {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.sizebutton {
+    padding: 0.8rem 1.4rem;
+    font-family: "Impact", sans-serif;
+    font-size: 1.25rem; /* button text in rem */
+    background: #ffffff;
+    border: 3px solid #0000; /* kept px for border precision */
+    cursor: pointer;
+}
+
+.sizebutton.active {
+    background: #000;
+    color: #fff;
+}
+
+/* added to cart feedback*/
+
+.added-feedback {
+    margin-top: 1rem;
+    font-family: "Impact", sans-serif;
+    opacity: 0;
+    transform: translateY(0.625rem); /* converted to rem */
+    transition: 0.3s ease;
+}
+
+.added-feedback.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* produktbeskrvning texten*/
+
+.produktbeskrivning h3 {
+    font-family: "Impact", sans-serif;
+    font-size: 1.75rem; /* heading in rem */
+    font-weight: 5;
+}
+
+.produktbeskrivning p {
+    font-family: "Helvetica", sans-serif;
+    font-size: 1.125rem; /* body text in rem */
+}
+
+@media (max-width: 1024px) {
+    /* tablet breakpoint */
+    .PDPcard {
+        grid-template-columns: 1fr;
+        grid-template-areas: "image" "text";
+        gap: 3rem;
+        padding: 5rem 3rem;
+    }
+
+    .add-to-cart {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    /* navigation för mobil, mindre padding */
+    .haroldnavigation {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .navs {    /* mindre gap */
+        gap: 1rem;
+    }
+
+    .haroldnavigation a:not(.varukorg) { /*mindre text*/
+        font-size: 1.25rem; /* responsive on mobile */
+        margin: 0 0.3125rem; /* responsive margin in rem */
+        padding: 0.25rem 0.5rem; /* responsive padding in rem */
+    }
+
+    .varukorg img {
+        width: 2.5rem; /* responsive width on mobile */
+        max-height: 2.5rem; /* responsive max-height */
+    }
+
+    #counter {
+        font-size: 1rem; /* responsive counter on mobile */
+    }
+
+
+    .PDPcard {    /* produkt korten i single column */
+        grid-template-columns: 1fr;
+        grid-template-areas: "image" "text";
+        gap: 2rem;
+        padding: 5rem 1rem;
+        min-height: auto;
+        text-align: center;
+    }
+
+    .PDPcard-image img {
+        margin-top: -2.5rem; /* responsive margin on mobile */
+        height: auto;
+    }
+
+    .PDPPoster img {
+        max-width: 100%;
+        margin-top: -2.5rem; /* responsive margin on mobile */
+    }
+
+    .PDPcard-text { /* alla fonts lite mindre*/
+        padding: 1rem 0;
+    }
+
+    .PDPcard-text h3 {
+        font-size: 2.25rem; /* responsive heading on mobile */
+        margin-bottom: 0.5rem;
+    }
+
+    .PDPcard-text h2 {
+        font-size: 2.5rem; /* responsive heading on mobile */
+    }
+
+    .PDPcard-text p {
+        font-size: 1rem; /* responsive text on mobile */
+    }
+
+    .add-to-cart {
+        width: 100%;
+        padding: 1rem 2rem;
+        font-size: 1.25rem; /* responsive button text on mobile */
+        margin-top: 1rem;
+    }
+
+    .size-meny {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sizebutton {
+        padding: 0.6rem 1rem;
+        font-size: 1rem; /* responsive button text on mobile */
+    }
+
+    .added-feedback {
+        margin-top: 0.5rem;
+    }
+
+    .produktbeskrivning h3 {
+        font-size: 1.5rem; /* responsive on mobile */
+    }
+
+    .produktbeskrivning p {
+        font-size: 1rem; /* responsive on mobile */
+    }
+}

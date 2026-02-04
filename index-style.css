@@ -1,0 +1,501 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #000;
+}
+
+body {
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+.varukorgholder {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1.875rem; /* replaced px with rem for responsive spacing */
+    padding-top: 3.125rem; /* replaced px with rem for responsive spacing */
+}
+
+.varukorg {
+    position: sticky;
+    text-decoration: none;
+    font-size: 0;
+    z-index: 3;
+}
+
+.varukorg img {
+    width: 3.75rem; /* responsive image sizing using rem */
+    height:auto;
+    max-height: 3.75rem; /* responsive max-height */
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.varukorg:hover {
+    transform: translate(-2px, -2px);
+}
+
+#counter {
+    pointer-events: none;
+    font-size: 1.25rem; /* typographic sizing in rem */
+    font-family: "Helvetica", sans-serif;
+    color: #fff;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.after-hero {
+    background-image: url(webdetails/comic-sidescribble.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 1.25rem; /* spacing converted to rem */
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+#stars {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.logo {
+    font-family: 'Impact', sans-serif;
+    color: #ffffff;
+    position: fixed;
+    top: 20vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(3.5rem, 12vw, 12.5rem); /* responsive logo using clamp */
+    text-transform: uppercase;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#guys {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.navigation {
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    padding: clamp(0.5rem, 1.5vw, 1.5rem);
+    display: flex;
+    justify-content: center;
+    gap: clamp(0.25rem, 1vw, 1.5rem);
+    flex-wrap: wrap;
+    z-index: 20;
+}
+
+.navigation a {
+    font-family: "Impact", sans-serif;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 0 clamp(0.125rem, 0.5vw, 0.5rem); /* tighter horizontal margin */
+    font-size: clamp(0.8rem, 2.5vw, 3.5rem); /* larger size for laptop */
+    text-transform: uppercase;
+    transition: color 0.3s;
+    padding: 0.4rem 0.6rem; /* reduced padding */
+    z-index: 100;
+    display: inline-block;
+    white-space: nowrap; /* prevent link text from wrapping */
+}
+
+.navigation a:hover {
+    color: #ca0000;
+}
+
+/* hardlux ord beskrivning */
+
+.ordbeskriv {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ordbeskriv img {
+    max-width: 80vh;
+    max-height: 80vh;
+    height: auto;
+}
+
+/* ---------- the characters sektionen ---------- */
+
+.the-characters h2 {
+    font-family: "Impact", sans-serif;
+    font-size: 8rem; /* large heading in rem */
+    text-transform: uppercase;
+    text-align: center;
+    margin: 2.5rem 0 1.25rem 0; /* margins converted to rem */
+    padding-top: 1.25rem; /* converted to rem */
+    padding-bottom: 2.5rem; /* converted to rem */
+}
+
+/* ---------- KARAKTÄRSKORT GRID ---------- */
+.character-cards {
+    display: grid;
+    gap: 2rem;
+    max-width: 75rem; /* converted px to rem for layout width */
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* ---------- STANDARD KORT ---------- */
+.card {
+    display: grid;
+    grid-template-columns: 40.625rem 1fr; /* column width converted to rem for responsive layout */
+    grid-template-areas: "image text";
+    gap: 0rem;
+    align-items: start;
+    padding: 0rem;
+    height: 37.5rem; /* converted fixed height to rem */
+    overflow: visible;
+}
+
+/* ---------- REVERSE KORT ---------- */
+.card.reverse {
+    grid-template-columns: 1fr 40.625rem; /* mirrored column using rem */
+    grid-template-areas: "text image";
+    gap: 0rem;
+    padding: 0rem;
+    align-items: start;
+}
+
+/* ---------- flytta catdude ut ur Matouks eld ---------- */
+
+.last-character {
+    margin-top: 0;
+}
+
+/* ---------- BILD ---------- */
+.card-image {
+    grid-area: image;
+    width: 100%;
+    height: 100%;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    object-position: center 20%;
+    transform: translateY(-11.25rem); /* transform converted to rem to keep proportional shift */
+}
+
+/* ---------- TEXT ---------- */
+.card-text {
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-text h3 {
+    font-family: "Impact", sans-serif;
+    font-size: 4.5rem; /* heading sized in rem */
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.card-text p {
+    font-size: 1.125rem; /* body copy in rem */
+    line-height: 1.5;
+}
+
+.card.reverse .card-text {
+    transform: translateX(10rem); /* translated to rem for responsive offset */
+}
+
+
+/*------------------about section-------------------*/
+
+#scribble {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+.about-menyn {
+    position: relative;
+    display: block;
+    padding: 5rem;
+    margin-top: -0.1875rem; /* small negative shift converted to rem */
+    background-color: #000;
+    text-align: center;
+    min-height: 6rem; /* ensure space for heading row */
+}
+
+.about-menyn h2 {
+    position: absolute;
+    left: 50%;
+    top: 1.5rem; /* position heading near top of section */
+    transform: translateX(-50%);
+    font-family: "Impact", sans-serif;
+    font-size: 3rem; /* heading sized in rem */
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.about-menyn .up {
+    position: absolute;
+    right: 1.5rem; /* place the back-to-top link to the right of the section */
+    top: 1.5rem; /* align vertically with the heading */
+    transform: none;
+}
+
+.about-menyn p {
+    font-family: "Helvetica", sans-serif;
+    font-size: 1.25rem; /* body text in rem */
+    color: #fffefe;
+    max-width: 60rem;
+    margin: 4rem auto 0 auto; /* place paragraph below the heading row */
+}
+
+.up {  /* back to top knappen */
+    font-family: "Impact", sans-serif;
+    font-size: 1.25rem; /* typographic size in rem */
+    text-decoration: none;
+    color: #fffefe;
+}
+
+.up:hover {
+    color: #ca0000;
+}
+
+/* ------- contact och flervalslista ----*/
+
+.contact {
+    background: #000;
+    color: #fff;
+    padding: 6rem 2rem;
+    text-align: center;
+    margin-top: 0;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.contact h2 {
+    font-family: "Impact", sans-serif;
+    font-size: 4.5rem; /* large contact heading in rem */
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.contact-links {
+    margin-bottom: 4rem;
+}
+
+.contact-links a {
+    font-family: "Impact", sans-serif;
+    font-size: 1.75rem; /* link size in rem */
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    border-bottom: 3px solid #fff;
+}
+
+.contact-links a:hover {
+    color: #ca0000;
+    border-color: #ca0000;
+}
+
+/* ---------- TABLET & LAPTOP BREAKPOINTS ---------- */
+@media (max-width: 1200px) {
+    .navigation { padding: 1rem; gap: 0.75rem; }
+    .navigation a { font-size: 1.5rem; padding: 0.4rem 0.6rem; margin: 0 0.25rem; }
+    .logo { font-size: clamp(3rem, 9vw, 10rem); top: 18vh; }
+    .character-cards { max-width: 60rem; padding: 1.5rem 0; gap: 1.5rem; }
+    .card { grid-template-columns: minmax(18rem, 30rem) 1fr; height: auto; }
+    .card.reverse { grid-template-columns: 1fr minmax(18rem, 30rem); }
+    .card-image img { transform: translateY(clamp(-3rem, -6vw, -8rem)); }
+    .card-text h3 { font-size: 3rem; }
+    .about-menyn { padding: 3rem; }
+    .contact { padding: 4rem 2rem; }
+}
+
+@media (max-width: 1024px) {
+    .navigation { padding: 0.875rem; gap: 0.5rem; }
+    .navigation a { font-size: 1.25rem; padding: 0.35rem 0.55rem; margin: 0 0.2rem; }
+    .logo { font-size: clamp(3rem, 10vw, 8rem); top: 17vh; }
+    .character-cards { max-width: 50rem; }
+    .card { grid-template-columns: 1fr; grid-template-areas: "image" "text"; }
+    .card-image img { transform: translateY(-2rem); height: auto; }
+    .card-text h3 { font-size: 2.5rem; }
+    .about-menyn { padding: 2.5rem; }
+    .about-menyn h2 { top: 1rem; font-size: 2.5rem; }
+    .about-menyn .up { right: 1rem; top: 1rem; font-size: 1rem; }
+    .contact { padding: 3rem 1.25rem; }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 600px) {    
+
+    .logo { /* storlek och position ändrad */
+        font-size: 5rem; /* responsive logo on mobile in rem */
+        top: 15vh;
+    }
+
+    .navigation {
+        padding: 0.5rem; /* minimal nav padding on small screens */
+        gap: 0.25rem;
+    }
+
+    .navigation a {
+        font-size: 1.5rem; /* small but readable on mobile */
+        padding: 0.4rem 0.5rem; /* compact tap area */
+        margin: 0 0.125rem; /* minimal margin */
+        display: inline-block;
+    }
+
+    .varukorgholder {
+        padding-top: 1.25rem; /* responsive mobile spacing */
+        padding-right: 0.9375rem; /* responsive mobile spacing */
+    }
+
+    .varukorg img {
+        width: 2.5rem; /* responsive cart image on mobile */
+        max-height: 2.5rem; /* responsive cart image max-height */
+    }
+
+    #counter {
+        font-size: 1rem; /* responsive counter on mobile */
+    }
+
+    .ordbeskriv {
+    min-height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ordbeskriv img {
+    max-width: 40vh;
+    max-height: 40vh;
+    height: auto;
+}
+
+    .the-characters h2 {
+        font-size: 4rem; /* responsive heading on mobile */
+        margin: 1.25rem 0 0.625rem 0; /* responsive margins in rem */
+        padding-top: 0.625rem; /* responsive padding in rem */
+        padding-bottom: 1.25rem; /* responsive padding in rem */
+    }
+
+    .character-cards {
+        padding: 1rem 0;
+        gap: -1rem;
+    }
+
+
+    .card,
+    .card.reverse { /*korten får va på varandra i ett led istället */
+        grid-template-columns: 1fr;
+        grid-template-areas: "image" "text";
+        max-height: 80vh; /* limit card height on mobile */
+        height: auto;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .card.reverse .card-text { /* inge reverse card */
+        transform: none;
+    }
+
+    .card-text {
+        display: none;
+    }
+
+    .card-image { 
+        max-width: 80%;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .card-image img { /* inge transform */
+        height: auto;
+        transform: none;
+    }
+
+    .card-text {
+        padding: 0 0 1rem 0;
+        position: relative;
+        top: -1.875rem; /* responsive offset in rem */
+    }
+
+    .card-text h3 {
+        font-size: 2.25rem; /* responsive heading on mobile */
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text p {
+        font-size: 1rem; /* responsive body text on mobile */
+    }
+
+    .about h2 {
+        font-size: 2rem; /* responsive mobile heading */
+        padding-top: 1.25rem; /* responsive mobile padding */
+    }
+
+    .contact {
+        padding: 3rem 1rem;
+    }
+
+    .contact h2 {
+        font-size: 3rem; /* responsive contact heading on mobile */
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-links {
+        margin-bottom: 2rem;
+    }
+
+    .contact-links a { /* kontakt länkarna får block på elements */
+        font-size: 1.125rem; /* responsive contact links on mobile */
+        margin: 0 0.5rem;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .contact-form {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .contact-form label {
+        font-size: 1.125rem; /* responsive label on mobile in rem */
+    }
+
+    .contact-form input, .contact-form select {
+        margin-bottom: 1rem;
+    }
+
+    .contact-form button {
+        font-size: 1.25rem; /* responsive button text on mobile */
+        padding: 0.625rem; /* responsive button padding in rem */
+        box-shadow: 0.25rem 0.25rem 0 #000; /* responsive shadow in rem */
+    }
+}
